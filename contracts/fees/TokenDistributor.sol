@@ -1,5 +1,14 @@
 pragma solidity ^0.5.0;
 
+import "openzeppelin-solidity/contracts/math/SafeMath.sol";
+import "openzeppelin-solidity/contracts/token/ERC20/IERC20.sol";
+import "openzeppelin-solidity/contracts/token/ERC20/SafeERC20.sol";
+import "openzeppelin-solidity/contracts/utils/ReentrancyGuard.sol";
+import "../interfaces/IKyberNetworkProxyInterface.sol";
+import {VersionedInitializable} from "../libraries/openzeppelin-upgradeability/VersionedInitializable.sol";
+import "../libraries/EthAddressLib.sol";
+
+
 
 
 /// @title TokenDistributor
@@ -54,7 +63,7 @@ contract TokenDistributor is ReentrancyGuard, VersionedInitializable {
     address public recipientBurn;
 
     /// @notice DEPRECATED
-    IExchangeAdapter public exchangeAdapter;
+    //IExchangeAdapter public exchangeAdapter;
 
     /// @notice Called by the proxy when setting this contract as implementation
     function initialize(
